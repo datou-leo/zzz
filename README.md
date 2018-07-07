@@ -11,7 +11,6 @@ zzz是一个基于nodejs的express框架开发的一个简单实现了前后台�
 zzz  WEB部署目录
 ├─bin                      存放启动文件
 │  └─www                   服务器启动文件 
- 
 ├─public                   公共文件夹
 │  ├─css                   存放样式文件
 │  ├─iconfont              存放字体文件
