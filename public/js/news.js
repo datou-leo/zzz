@@ -1,4 +1,4 @@
-var pagenum = 3; //设定最开始显示图片数量的值
+var pagenum = 0; //设定最开始显示图片数量的游标
 var type = '精选'; //给定初始值
 
 $(document).ready(function() {
@@ -7,7 +7,7 @@ $(document).ready(function() {
         e.preventDefault(); //阻止其默认
         type = $(this).text();
         //这里设置为了切换的时候把前面pagenum值清零
-        pagenum = 3;
+        pagenum = 0;
         console.log(type);
         refreshNews(type);
     });
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 bootbox.alert("没有更多数据了");
                 return;
             }
-                data.forEach(function(value, index, array) {
+                data.forEach(function(value, index, array) {                    
                 var newstime=moment(value.newstime).format('YYYY-MM-DD HH:mm');
                     var $list = $("<li></li>").addClass("news-list").appendTo($lists);
                     var $imgdiv = $("<div></div>").addClass("news-img").appendTo($list);
@@ -69,7 +69,7 @@ function refreshNews(type) {
         },
         success: function(data) {
             data.forEach(function(value, index, array) {
-            
+                //console.log(value.newsid);
                 var newstime=value.newstime.split('T')[0];
                 var $list = $("<li></li>").addClass("news-list").prependTo($lists);
                 var $imgdiv = $("<div></div>").addClass("news-img").appendTo($list);
